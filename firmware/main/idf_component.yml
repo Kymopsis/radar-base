@@ -1,0 +1,5 @@
+dependencies:
+  idf: ">=6.0"
+  espressif/mdns: "^1.11.3"   # kymradar.local on the home network
+  espressif/led_strip: "^3.0.3"  # board RGB LED (batch flashing PASS / FAIL)
+  espressif/mqtt: "^1.0.0"    # Home Assistant via the user's own MQTT broker

@@ -1,0 +1,66 @@
+# Kymopsis Radar Base with ESPHome (ESP32-S3 dev board on the Radar Base carrier).
+# The radar app must start from the radar module's own flash (dev-kit modules ship that way).
+# Docs: https://radar.kymopsis.com
+esphome:
+  name: radar-base
+  friendly_name: Radar Base
+
+esp32:
+  board: esp32-s3-devkitc-1
+  framework:
+    type: esp-idf
+
+logger:
+api:
+ota:
+  - platform: esphome
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/Kymopsis/radar-base
+      ref: main
+      path: esphome/components
+    components: [kymopsis_radar]
+
+uart:
+  id: radar_uart
+  tx_pin: GPIO17      # to the radar's UART0 RX
+  rx_pin: GPIO18      # from the radar's UART0 TX
+  baud_rate: 115200
+
+kymopsis_radar:
+  uart_id: radar_uart
+  reset_pin: GPIO4
+  boot_high_pin: GPIO5
+  boot_low_pin: GPIO6
+  mount: keep         # ceiling | side | keep (presence app)
+
+binary_sensor:
+  - platform: kymopsis_radar
+    occupancy:
+      name: Occupancy
+    area_1:
+      name: Area 1
+    area_2:
+      name: Area 2
+    area_3:
+      name: Area 3
+    area_4:
+      name: Area 4
+    fall:
+      name: Fall detected
+
+sensor:
+  - platform: kymopsis_radar
+    people:
+      name: People
+    nearest_distance:
+      name: Nearest person
+    breathing_rate:
+      name: Breathing rate
+    heart_rate:
+      name: Heart rate

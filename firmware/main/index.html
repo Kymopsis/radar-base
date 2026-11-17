@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Radar Base flasher test</title>
+<style>
+body{font:14px system-ui,sans-serif;margin:0;padding:12px;background:#f6f7f9;color:#111}
+h1{font-size:18px;margin:0 0 8px}section{background:#fff;border:1px solid #ddd;border-radius:8px;padding:10px;margin:0 0 10px}
+button{padding:7px 10px;margin:2px;border:1px solid #888;border-radius:6px;background:#fff;cursor:pointer}
+button.p{background:#0b5;color:#fff;border-color:#0b5}button.w{background:#c40;color:#fff;border-color:#c40}
+select,input{padding:5px;max-width:100%}table{border-collapse:collapse;width:100%}td{padding:3px;border-bottom:1px solid #eee;word-break:break-all}
+#log{background:#111;color:#cfc;font:12px ui-monospace,monospace;height:45vh;overflow:auto;padding:8px;border-radius:8px;white-space:pre-wrap}
+small{color:#666}
+</style></head><body>
+<h1>Kymopsis Radar Base · flasher bench test</h1>
+<p><a href="/app"><b>Open the live results page →</b></a></p>
+<section><b>Files on ESP32</b> <small id="space"></small>
+<table id="files"></table>
+<input type="file" id="f" multiple> <button onclick="up()">Upload</button></section>
+<section><b>Tests</b> <small id="busy"></small><br>
+<button onclick="run('version')">0 · Version query (UART0)</button>
+<button onclick="run('rom')">1 · ROM boot probe</button><br>
+App <select id="app"></select><br>
+<button class="p" onclick="run('ram',v('app'))">2 · Run app from RAM (flash untouched)</button><br>
+Loader <select id="ldr"></select><br>
+<button class="w" onclick="if(confirm('Write '+v('app')+' into radar flash?'))run('flash',v('ldr'),v('app'))">3 · Write app to flash</button>
+<button onclick="run('backup',v('ldr'))">Back up radar flash (saves bakN.bin)</button>
+<button onclick="run('reset')">Reset (boot from flash)</button>
+<button onclick="run('ota')">4 · Probe in-app OTA</button>
+<div><small id="pins"></small></div></section>
+<div id="log"></div>
+<script>
+const v=id=>document.getElementById(id).value;let next=0;
+async function files(){const r=await (await fetch('/api/files')).json();
+document.getElementById('busy').textContent=r.busy?'busy…':'idle';document.getElementById('pins').textContent=r.pins;
+document.getElementById('space').textContent=Math.round(r.used/1024)+' / '+Math.round(r.total/1024)+' KB';
+const t=document.getElementById('files');t.innerHTML='';const o=r.files.map(f=>'<option>'+f.name+'</option>').join('');
+for(const f of r.files){const tr=t.insertRow();tr.insertCell().textContent=f.name;tr.insertCell().textContent=f.size;
+const b=document.createElement('button');b.textContent='delete';b.onclick=async()=>{await fetch('/api/delete?name='+encodeURIComponent(f.name),{method:'POST'});files()};tr.insertCell().appendChild(b)}
+for(const id of['app','ldr']){const s=document.getElementById(id),k=s.value;s.innerHTML=(id=='ldr'?'<option>builtin</option>':'')+o;if(k)s.value=k}}
+async function up(){for(const f of document.getElementById('f').files){
+const r=await fetch('/api/upload?name='+encodeURIComponent(f.name),{method:'POST',body:f});if(!r.ok)alert(f.name+': '+await r.text())}files()}
+async function run(op,a='',b=''){const r=await fetch(`/api/run?op=${op}&a=${encodeURIComponent(a)}&b=${encodeURIComponent(b)}`,{method:'POST'});
+if(!r.ok)alert(await r.text());files()}
+async function poll(){try{const r=await (await fetch('/api/log?since='+next)).json();next=r.next;
+if(r.lines.length){const l=document.getElementById('log');const end=l.scrollTop+l.clientHeight>=l.scrollHeight-20;
+l.textContent+=r.lines.join('\n')+'\n';if(end)l.scrollTop=l.scrollHeight}}catch(e){}setTimeout(poll,700)}
+files();poll();setInterval(files,3000);
+</script></body></html>

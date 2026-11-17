@@ -1,0 +1,25 @@
+<svg class="diagram" viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wiring: Radar Base pins to radar carrier labels">
+<g font-family="Inter,system-ui,sans-serif" font-size="14">
+<rect x="10" y="10" width="230" height="450" rx="14" fill="#0b5cff"/>
+<text x="125" y="38" text-anchor="middle" font-weight="700" fill="#fff">Radar Base (ESP32-S3)</text>
+<rect x="520" y="10" width="230" height="450" rx="14" fill="#f8fbff" stroke="#c7d8ff"/>
+<text x="635" y="38" text-anchor="middle" font-weight="700" fill="#0f172a">Radar carrier (labels)</text>
+<g id="rows" fill="none" stroke-width="3" stroke-linecap="round">
+<path d="M240 70H520" stroke="#0f172a"/>
+<path d="M240 108H520" stroke="#2563eb"/><path d="M240 146H520" stroke="#16a34a"/>
+<path d="M240 184H520" stroke="#2563eb"/><path d="M240 222H520" stroke="#16a34a"/>
+<path d="M240 260H520" stroke="#dc2626"/><path d="M240 298H520" stroke="#ea580c"/><path d="M240 336H520" stroke="#ea580c"/>
+<path d="M240 374H520" stroke="#9333ea"/><path d="M240 412H520" stroke="#9333ea"/></g>
+<g fill="#fff" font-weight="600">
+<text x="30" y="75">GND</text><text x="30" y="113">GPIO17</text><text x="30" y="151">GPIO18</text><text x="30" y="189">GPIO15</text>
+<text x="30" y="227">GPIO16</text><text x="30" y="265">GPIO4</text><text x="30" y="303">GPIO5</text><text x="30" y="341">GPIO6</text>
+<text x="30" y="379">GPIO12</text><text x="30" y="417">GPIO11</text></g>
+<g fill="#0f172a" font-weight="600" text-anchor="end">
+<text x="730" y="75">GND</text><text x="730" y="113">RX0</text><text x="730" y="151">TX0</text><text x="730" y="189">RX1</text>
+<text x="730" y="227">TX1</text><text x="730" y="265">RST</text><text x="730" y="303">P12</text><text x="730" y="341">P19</text>
+<text x="730" y="379">SPI CLK</text><text x="730" y="417">SPI MOSI</text></g>
+<g fill="#64748b" font-size="12" text-anchor="middle">
+<text x="380" y="63">first</text><text x="380" y="101">results: commands</text><text x="380" y="139">results: data</text>
+<text x="380" y="177">loading apps</text><text x="380" y="215">loading replies</text><text x="380" y="253">reset</text>
+<text x="380" y="291">boot select</text><text x="380" y="329">boot select</text><text x="380" y="367">raw data clock</text><text x="380" y="405">raw data (not MISO)</text></g>
+</g></svg>

@@ -1,0 +1,8 @@
+{
+ "en": {"open_app": "Open the app", "overview": "Overview", "no_cloud": "No cloud. Your radar data stays on your devices.",
+        "fallback": "This page is not translated yet; showing the English version.",
+        "group.Start": "Start", "group.Connect": "Connect", "group.Smart home": "Smart home", "group.Develop": "Develop", "group.Help": "Help"},
+ "zh-CN": {"open_app": "打开应用", "overview": "概览", "no_cloud": "不用云端，雷达数据只留在你自己的设备上。",
+        "fallback": "本页尚未翻译，以下为英文版。",
+        "group.Start": "开始", "group.Connect": "连接", "group.Smart home": "智能家居", "group.Develop": "开发", "group.Help": "帮助"}
+}

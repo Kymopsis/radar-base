@@ -1,0 +1,11 @@
+{
+  "open_app": "앱 열기",
+  "overview": "개요",
+  "no_cloud": "클라우드가 필요 없습니다. 레이더 데이터는 내 기기에만 남습니다.",
+  "fallback": "이 페이지는 아직 번역되지 않아 영어판을 표시합니다.",
+  "group.Start": "시작하기",
+  "group.Connect": "연결",
+  "group.Smart home": "스마트홈",
+  "group.Develop": "개발",
+  "group.Help": "도움말"
+}

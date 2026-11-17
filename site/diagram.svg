@@ -1,0 +1,27 @@
+<svg class="diagram" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Radar module to Radar Base to clients">
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#94a3b8"/></marker></defs>
+<g font-family="Inter,system-ui,sans-serif" font-size="14">
+<rect x="10" y="80" width="200" height="140" rx="14" fill="#f8fbff" stroke="#c7d8ff"/>
+<text x="110" y="110" text-anchor="middle" font-weight="700" fill="#0f172a">Radar module</text>
+<text x="110" y="138" text-anchor="middle" fill="#475569">60 GHz radar</text>
+<text x="110" y="160" text-anchor="middle" fill="#475569">radar apps run here</text>
+<text x="110" y="182" text-anchor="middle" fill="#475569">FFT and CFAR hardware</text>
+<rect x="320" y="60" width="240" height="180" rx="14" fill="#0b5cff"/>
+<text x="440" y="92" text-anchor="middle" font-weight="700" fill="#fff">Radar Base (ESP32-S3)</text>
+<text x="440" y="122" text-anchor="middle" fill="#dbe7ff">loads radar apps</text>
+<text x="440" y="144" text-anchor="middle" fill="#dbe7ff">results → JSON</text>
+<text x="440" y="166" text-anchor="middle" fill="#dbe7ff">raw data stream</text>
+<text x="440" y="188" text-anchor="middle" fill="#dbe7ff">web app · Wi-Fi · USB</text>
+<text x="440" y="210" text-anchor="middle" fill="#dbe7ff">MQTT</text>
+<line x1="212" y1="130" x2="316" y2="130" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="316" y1="170" x2="214" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+<text x="264" y="122" text-anchor="middle" font-size="12" fill="#64748b">results, raw data</text>
+<text x="264" y="190" text-anchor="middle" font-size="12" fill="#64748b">apps, settings</text>
+<g fill="#fff" stroke="#dce7f2">
+<rect x="670" y="20" width="220" height="56" rx="12"/><rect x="670" y="92" width="220" height="56" rx="12"/>
+<rect x="670" y="164" width="220" height="56" rx="12"/><rect x="670" y="236" width="220" height="56" rx="12"/></g>
+<g fill="#0f172a" font-weight="600"><text x="686" y="45">Web app</text><text x="686" y="117">PC viewer</text><text x="686" y="189">Home Assistant</text><text x="686" y="261">Your own code</text></g>
+<g fill="#64748b" font-size="12"><text x="686" y="64">USB or home Wi-Fi</text><text x="686" y="136">USB, JSON results</text><text x="686" y="208">MQTT, your own broker</text><text x="686" y="280">JSON over USB or WebSocket</text></g>
+<g stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)" fill="none">
+<path d="M562 110 C620 110 620 48 666 48"/><path d="M562 130 C620 130 620 120 666 120"/><path d="M562 170 C620 170 620 192 666 192"/><path d="M562 190 C620 190 620 264 666 264"/></g>
+</g></svg>

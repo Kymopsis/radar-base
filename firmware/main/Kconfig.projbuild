@@ -1,0 +1,33 @@
+menu "Radar flasher pins"
+    config RB_RST_GPIO
+        int "GPIO to radar RST (open-drain, -1 = press reset by hand)"
+        default 4
+    config RB_P12_GPIO
+        int "GPIO to radar boot pin P12 (open-drain, -1 = manual jumper/wire)"
+        default 5
+    config RB_P19_GPIO
+        int "GPIO to radar boot pin P19 (open-drain, -1 = manual jumper/wire)"
+        default 6
+    config RB_U0_TX_GPIO
+        int "ESP TX -> radar UART0 RX (app data)"
+        default 17
+    config RB_U0_RX_GPIO
+        int "ESP RX <- radar UART0 TX (app data)"
+        default 18
+    config RB_U1_TX_GPIO
+        int "ESP TX -> radar UART1 RX (ROM boot)"
+        default 15
+    config RB_U1_RX_GPIO
+        int "ESP RX <- radar UART1 TX (ROM boot)"
+        default 16
+    config RB_SPI_SCLK_GPIO
+        int "ESP SPI slave SCLK <- radar SPI0 SCLK (flash pin 6)"
+        default 12
+    config RB_SPI_DATA_GPIO
+        int "ESP SPI slave MOSI <- radar SPI0 data out (flash pin 5 DI)"
+        default 11
+    config RB_AP_PASSWORD
+        string "Wi-Fi AP password (test only, >= 8 chars)"
+        default "kymradar"
+endmenu
+
