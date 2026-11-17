@@ -45,7 +45,7 @@ resultados em um formato JSON simples e os disponibiliza por USB e Wi-Fi.
 | Radar Base (ESP32-S3) | Carrega apps de radar, traduz resultados para JSON, transmite dados brutos, serve o app web, entra no seu Wi-Fi |
 | App web | Escolha uma tarefa, acompanhe resultados ao vivo, mude configurações. O mesmo app por Wi-Fi e por USB, em 11 idiomas |
 | Seu próprio código | Lê os resultados JSON por USB ou WebSocket |
-| Casa inteligente | Home Assistant via MQTT (em breve), ESPHome (depois) |
+| Casa inteligente | Home Assistant via MQTT (descoberta automática), componente ESPHome |
 
 ## Formas de conectar
 

@@ -44,7 +44,7 @@ Radar Base 把 60 GHz 毫米波雷达模块连接到你的电脑、手机和智�
 | Radar Base (ESP32-S3) | 加载雷达应用，把结果转成 JSON，推送原始数据流，提供网页应用，接入你的 Wi-Fi |
 | 网页应用 | 选择任务、查看实时结果、修改设置。Wi-Fi 和 USB 下是同一个应用，支持 11 种语言 |
 | 你自己的代码 | 通过 USB 或 WebSocket 读取 JSON 结果 |
-| 智能家居 | 通过 MQTT 接入 Home Assistant（即将推出），ESPHome（之后） |
+| 智能家居 | 通过 MQTT 接入 Home Assistant（自动发现），ESPHome 组件 |
 
 ## 连接方式
 

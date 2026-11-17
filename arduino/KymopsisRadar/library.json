@@ -1,0 +1,13 @@
+{
+  "name": "KymopsisRadar",
+  "version": "0.9.1",
+  "description": "Read people, areas, fall, breathing and heart rate from the Kymopsis 60 GHz Radar Base (radar app result frames on UART).",
+  "keywords": ["radar", "mmwave", "60ghz", "presence", "people-counting", "vital-signs"],
+  "repository": {"type": "git", "url": "https://github.com/Kymopsis/radar-base.git"},
+  "homepage": "https://radar.kymopsis.com",
+  "authors": [{"name": "Kymopsis", "email": "support@kymopsis.com", "maintainer": true}],
+  "license": "MIT",
+  "frameworks": ["arduino"],
+  "platforms": "*",
+  "export": {"include": ["src", "examples", "library.properties", "library.json"]}
+}

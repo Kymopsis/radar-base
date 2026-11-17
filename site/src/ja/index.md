@@ -45,7 +45,7 @@ USB と Wi-Fi で提供します。
 | Radar Base (ESP32-S3) | レーダーアプリを読み込み、結果を JSON に変換し、生データを流し、Web アプリを提供し、Wi-Fi に参加します |
 | Web アプリ | タスクを選び、リアルタイムの結果を見て、設定を変えます。Wi-Fi でも USB でも同じアプリで、11 言語に対応します |
 | 自分のコード | USB または WebSocket 経由で JSON の結果を読み取ります |
-| スマートホーム | MQTT 経由の Home Assistant（近日対応）、ESPHome（その後） |
+| スマートホーム | MQTT 経由の Home Assistant（自動検出）、ESPHome コンポーネント |
 
 ## 接続方法
 

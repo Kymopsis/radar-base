@@ -45,7 +45,7 @@ USB와 Wi-Fi로 제공합니다.
 | Radar Base (ESP32-S3) | 레이더 앱을 불러오고, 결과를 JSON으로 변환하고, 원시 데이터를 스트리밍하고, 웹 앱을 제공하고, Wi-Fi에 연결합니다 |
 | 웹 앱 | 작업을 고르고, 실시간 결과를 보고, 설정을 바꿉니다. Wi-Fi와 USB에서 같은 앱이며 11개 언어를 지원합니다 |
 | 직접 만든 코드 | USB나 WebSocket으로 JSON 결과를 읽습니다 |
-| 스마트홈 | MQTT로 Home Assistant(다음 단계), ESPHome(그다음) |
+| 스마트홈 | MQTT로 Home Assistant(자동 검색), ESPHome 컴포넌트 |
 
 ## 연결 방법
 

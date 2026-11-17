@@ -36,6 +36,7 @@ with this open firmware. See the "Dev-kit flashing" guide.
 | `firmware/` | ESP32-S3 firmware (ESP-IDF v6.0): loads radar apps into the radar, JSON results, web app, Wi-Fi, MQTT / Home Assistant |
 | `pc-gui/` | JSON results viewer and example client (Python) |
 | `esphome/` | ESPHome external component `kymopsis_radar` and an example YAML |
+| `arduino/KymopsisRadar/` | Arduino / PlatformIO library: radar app results on any board wired to the radar's UART |
 | `site/` | Guides for radar.kymopsis.com in 11 languages (built by GitHub Actions) |
 | `ARCHITECTURE.md` | How it fits together, where algorithms run, developer quick start |
 
