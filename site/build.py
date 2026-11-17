@@ -33,7 +33,7 @@ def inline(s):
     def link(m):
         t, u = m.group(1), m.group(2)
         if not re.match(r"^[a-z]+:|^/|^#", u):
-            u = "../app/" if u.startswith("app") else u + ".html"
+            u = "../" if u.startswith("app") else u + ".html"
         return f'<a href="{u}">{t}</a>'
     return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", link, s)
 
@@ -136,7 +136,7 @@ def page_html(lang, page, langs_built):
 {''.join(f'<link rel="alternate" hreflang="{c}" href="../{c}/{page}.html">' for c in langs_built)}
 </head><body>
 <header class="top"><div class="in"><a class="brand" href="index.html"><img src="../logo.svg" alt="Kymopsis"><span>Radar Base</span></a>
-<div class="sp"></div><a class="btn pri" href="../app/">{html.escape(u['open_app'])}</a>
+<div class="sp"></div><a class="btn pri" href="../">{html.escape(u['open_app'])}</a>
 <select class="lang" aria-label="Language" onchange="location.href='../'+this.value+'/{page}.html'">{opts}</select></div></header>
 <div class="wrap"><nav class="side"><a href="index.html"{' class=on' if page == 'index' else ''}>{html.escape(u['overview'])}</a>{nav}</nav>
 <main>{note}{md(body)}</main></div>
@@ -171,12 +171,19 @@ def main():
         (OUT / lang).mkdir(exist_ok=True)
         for page in ORDER:
             (OUT / lang / f"{page}.html").write_text(page_html(lang, page, built), encoding="utf-8")
-    (OUT / "index.html").write_text(ROOT_INDEX % json.dumps(built), encoding="utf-8")
+    # the site's home page is the web app itself (hosted mode: USB, install, open on my network, guides)
+    app = (APP / "app.html").read_text(encoding="utf-8")
+    head = ('<link rel="icon" href="/favicon.png"><meta name="description" content="Kymopsis 60 GHz Radar Base: '
+            'web app over USB, open firmware, Home Assistant, ESPHome and JSON guides. No cloud.">')
+    app = app.replace("</title>", "</title>" + head, 1) if "</title>" in app else app.replace("<head>", "<head>" + head, 1)
+    (OUT / "index.html").write_text(app, encoding="utf-8")
     shutil.copy(HERE / "site.css", OUT / "site.css")
     shutil.copy(LOGO, OUT / "logo.svg")
     shutil.copy(HERE.parent / "pc-gui" / "assets" / "kymopsis-mark-favicon-192.png", OUT / "favicon.png")
-    (OUT / "app").mkdir(exist_ok=True)
-    shutil.copy(APP / "app.html", OUT / "app" / "index.html")
+    (OUT / "app").mkdir(exist_ok=True)   # old links to /app/ go to the home page
+    (OUT / "app" / "index.html").write_text('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=../">'
+                                            '<link rel="canonical" href="https://radar.kymopsis.com/"><a href="../">Radar Base</a>',
+                                            encoding="utf-8")
     shutil.copytree(APP / "i18n", OUT / "i18n", dirs_exist_ok=True)
     (OUT / "CNAME").write_text("radar.kymopsis.com\n", encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")

@@ -20,7 +20,7 @@ wird nichts geschrieben. Sicherungen lassen sich jederzeit über die App zurück
 
 ## Wie die Dev-Kit-Firmware geliefert wird
 
-Die Dev-Kit-Firmware ist auf dem Dev-Kit-Board vorinstalliert. Updates werden den Käufern per E-Mail mitgeteilt; die Dev-Kit-Firmware ist kein öffentlicher Download. Die offene Firmware wird als Quellcode in einem öffentlichen Repository veröffentlicht; diese Seite verlinkt es, sobald es online ist.
+Die Dev-Kit-Firmware ist auf dem Dev-Kit-Board vorinstalliert. Updates werden den Käufern per E-Mail mitgeteilt; die Dev-Kit-Firmware ist kein öffentlicher Download. Die offene Firmware ist als Quellcode veröffentlicht: [github.com/Kymopsis/radar-base](https://github.com/Kymopsis/radar-base).
 
 ## Stapel-Flashen
 

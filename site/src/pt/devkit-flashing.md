@@ -20,7 +20,7 @@ podem ser restaurados a qualquer momento pelo app.
 
 ## Como o firmware do kit de desenvolvimento é entregue
 
-O firmware do kit de desenvolvimento vem pré-carregado na placa do kit. As atualizações são comunicadas aos compradores por e-mail; esse firmware não é um download público. O firmware aberto será publicado como código-fonte em um repositório público; esta página trará o link quando ele sair.
+O firmware do kit de desenvolvimento vem pré-carregado na placa do kit. As atualizações são comunicadas aos compradores por e-mail; esse firmware não é um download público. O firmware aberto está publicado como código-fonte: [github.com/Kymopsis/radar-base](https://github.com/Kymopsis/radar-base).
 
 ## Gravação em lote
 

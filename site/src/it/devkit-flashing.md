@@ -20,7 +20,7 @@ I backup si possono ripristinare in qualsiasi momento dall'app.
 
 ## Come viene consegnato il firmware del kit di sviluppo
 
-Il firmware del kit di sviluppo è precaricato sulla scheda del kit. Gli aggiornamenti vengono comunicati agli acquirenti via e-mail; questo firmware non è un download pubblico. Il firmware aperto sarà pubblicato come codice sorgente in un repository pubblico; questa pagina ne darà il link quando sarà online.
+Il firmware del kit di sviluppo è precaricato sulla scheda del kit. Gli aggiornamenti vengono comunicati agli acquirenti via e-mail; questo firmware non è un download pubblico. Il firmware aperto è pubblicato come codice sorgente: [github.com/Kymopsis/radar-base](https://github.com/Kymopsis/radar-base).
 
 ## Scrittura in serie
 

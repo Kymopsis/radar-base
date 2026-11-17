@@ -21,7 +21,7 @@ put back at any time from the app.
 ## How the dev-kit firmware is delivered
 
 The dev-kit firmware comes pre-loaded on the dev-kit board. Updates are announced to buyers by e-mail; the dev-kit
-firmware is not a public download. The open firmware will be published as source code in a public repository; this page will link it when it is out.
+firmware is not a public download. The open firmware is published as source code: [github.com/Kymopsis/radar-base](https://github.com/Kymopsis/radar-base).
 
 ## Batch flashing
 

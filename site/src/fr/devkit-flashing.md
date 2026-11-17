@@ -20,7 +20,7 @@ n'est écrit. Les sauvegardes peuvent être restaurées à tout moment depuis l'
 
 ## Comment le firmware du kit de développement est livré
 
-Le firmware du kit de développement est préchargé sur la carte du kit. Les mises à jour sont annoncées aux acheteurs par e-mail ; ce firmware n'est pas un téléchargement public. Le firmware ouvert sera publié sous forme de code source dans un dépôt public ; cette page donnera le lien dès sa mise en ligne.
+Le firmware du kit de développement est préchargé sur la carte du kit. Les mises à jour sont annoncées aux acheteurs par e-mail ; ce firmware n'est pas un téléchargement public. Le firmware ouvert est publié sous forme de code source : [github.com/Kymopsis/radar-base](https://github.com/Kymopsis/radar-base).
 
 ## Flashage par lots
 
