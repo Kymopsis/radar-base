@@ -5,7 +5,7 @@
 
 #include "sdkconfig.h"
 #define RB_DEVKIT 0   /* open build */
-#define RB_FW_VERSION "0.9.1"   /* ESP32 Radar Base firmware */
+#define RB_FW_VERSION "0.9.2"   /* ESP32 Radar Base firmware */
 
 typedef enum { BOOT_FLASH, BOOT_XMODEM, BOOT_DEBUG } boot_mode_t;
 
