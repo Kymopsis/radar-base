@@ -6,6 +6,7 @@
  *                command 0x0201 uint32: 0x13 top mount, 0x14 side mount, 0x15 get mount
  *   Fall:        0x0E02 uint8 is_fall; 0x0F09 uint8 is_human
  *   Vital signs: 0x0A14 float breath /min; 0x0A15 float heart /min; 0x0A16 uint32 flag + float range cm
+ *   Gesture:     0x1000 uint16 gesture: 0 up, 1 down, 2 left, 3 right, 4 push, 5 pull (sent once per gesture)
  * The point clouds (0x0A08) are not part of schema v0 and are not translated.
  */
 #include "app_json.h"
@@ -21,8 +22,8 @@
 #define MAX_TARGETS 16
 #define CAP_REPEAT_MS 5000
 
-typedef enum { APP_NONE, APP_HD3D, APP_FALL, APP_VITAL } app_t;
-static const char *const APP_NAME[] = { "none", "hd3d", "fall", "vital" };
+typedef enum { APP_NONE, APP_HD3D, APP_FALL, APP_VITAL, APP_GESTURE } app_t;
+static const char *const APP_NAME[] = { "none", "hd3d", "fall", "vital", "gesture" };
 
 static volatile bool s_usb_on;
 static const app_json_sink_t *s_sink;
@@ -58,13 +59,15 @@ static void send_cap(void)
     if (a == APP_HD3D)
         n = snprintf(s, sizeof s, "{\"v\":0,\"t\":\"cap\",\"app\":\"hd3d\",\"mounts\":[\"ceiling\",\"side\"],"
                      "\"mount\":\"%s\",\"fov_deg\":55}\n", mount_name());
+    else if (a == APP_GESTURE)
+        n = snprintf(s, sizeof s, "{\"v\":0,\"t\":\"cap\",\"app\":\"gesture\",\"mounts\":[\"side\"],\"mount\":\"side\"}\n");
     else if (a == APP_FALL)
         n = snprintf(s, sizeof s, "{\"v\":0,\"t\":\"cap\",\"app\":\"fall\",\"mounts\":[\"ceiling\"],\"mount\":\"ceiling\"}\n");
     else
         n = snprintf(s, sizeof s, "{\"v\":0,\"t\":\"cap\",\"app\":\"vital\",\"mounts\":[\"side\"],\"mount\":\"side\"}\n");
     emit(s, n);
     s_cap_ms = now_ms();
-    if (obs_on()) s_obs->cap(APP_NAME[a], a == APP_HD3D ? mount_name() : a == APP_FALL ? "ceiling" : "side");
+    if (obs_on() && a != APP_GESTURE) s_obs->cap(APP_NAME[a], a == APP_HD3D ? mount_name() : a == APP_FALL ? "ceiling" : "side");
 }
 
 void app_json_announce(void) { send_cap(); }
@@ -75,6 +78,7 @@ static app_t app_of(uint16_t type)
     case 0x0A04: case 0x0A0A: case 0x0A11: return APP_HD3D;
     case 0x0E02: case 0x0F09: return APP_FALL;
     case 0x0A13: case 0x0A14: case 0x0A15: case 0x0A16: return APP_VITAL;
+    case 0x1000: return APP_GESTURE;
     default: return APP_NONE;   /* 0x0A08 (point cloud) is shared by two apps */
     }
 }
@@ -204,6 +208,16 @@ void app_json_on_tf(uint16_t type, const uint8_t *p, uint16_t len)
     case 0x0A15: if (len >= 4) s_hr = rdf(p); break;
     case 0x0A16:
         if (len >= 8) { uint32_t fl; memcpy(&fl, p, 4); on_vital(fl != 0, rdf(p + 4)); }
+        break;
+    case 0x1000:
+        if (len >= 2) {
+            static const char *const G[] = { "up", "down", "left", "right", "push", "pull" };
+            uint16_t g = (uint16_t)(p[0] | p[1] << 8);
+            char s[96];
+            int k = snprintf(s, sizeof s, "{\"v\":0,\"t\":\"gesture\",\"ts\":%lld,\"gesture\":\"%s\"}\n",
+                             (long long)now_ms(), g < 6 ? G[g] : "unknown");
+            emit(s, k);
+        }
         break;
     }
 }
