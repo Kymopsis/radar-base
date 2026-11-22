@@ -19,7 +19,7 @@ LOGO = HERE.parent / "pc-gui" / "assets" / "kymopsis-logo-artistic-v4-light.svg"
 LANGS = {"en": "English", "zh-CN": "简体中文", "zh-TW": "繁體中文", "ja": "日本語", "ko": "한국어", "de": "Deutsch",
          "fr": "Français", "es": "Español", "pt": "Português", "it": "Italiano", "ru": "Русский"}
 ORDER = ["index", "getting-started", "usb", "wifi", "hotspot", "home-assistant", "esphome", "raw-data", "json-api",
-         "devkit-flashing", "faq"]
+         "devkit-flashing", "downloads", "faq"]
 UI = json.loads((HERE / "ui.json").read_text(encoding="utf-8"))   # site chrome strings (en, zh-CN)
 for _p in SRC.glob("*/_ui.json"):                                  # per-language overrides from translators
     UI.setdefault(_p.parent.name, {}).update(json.loads(_p.read_text(encoding="utf-8")))

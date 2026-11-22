@@ -5,7 +5,7 @@ group: Develop
 ---
 # Rohdaten und eigene Algorithmen
 
-Radar Base kann die rohen Daten des Radars (jeden Chirp, beide Empfangskanäle) über USB streamen. Die offene Firmware enthält diesen Datenstrom und seine Einstellungen; das PC-Werkzeug zum Anzeigen und Verarbeiten der Rohdaten ist noch nicht veröffentlicht.
+Radar Base kann die rohen Daten des Radars (jeden Chirp, beide Empfangskanäle) über USB streamen. Die offene Firmware enthält diesen Datenstrom und seine Einstellungen; Radar Studio für Windows zeigt und verarbeitet sie und öffnet diese Ansichten mit einem Dev-Kit ([Downloads](downloads)).
 
 ## Was die offene Firmware bietet
 

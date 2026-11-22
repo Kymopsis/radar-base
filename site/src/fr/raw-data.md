@@ -5,7 +5,7 @@ group: Develop
 ---
 # Données brutes et vos propres algorithmes
 
-Radar Base peut diffuser les données brutes du radar (chaque chirp, les deux voies de réception) en USB. Le firmware ouvert inclut ce flux et ses réglages ; l'outil PC pour afficher et traiter les données brutes n'est pas encore publié.
+Radar Base peut diffuser les données brutes du radar (chaque chirp, les deux voies de réception) en USB. Le firmware ouvert inclut ce flux et ses réglages  ; Radar Studio pour Windows les affiche et les traite, et ouvre ces vues avec un kit de développement ([Téléchargements](downloads)).
 
 ## Ce qu'apporte le firmware ouvert
 

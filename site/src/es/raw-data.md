@@ -5,7 +5,7 @@ group: Develop
 ---
 # Datos sin procesar y tus propios algoritmos
 
-Radar Base puede transmitir por USB los datos sin procesar del radar (cada chirp, ambos canales de recepción). El firmware abierto incluye este flujo y sus ajustes; la herramienta de PC para ver y procesar los datos sin procesar aún no está publicada.
+Radar Base puede transmitir por USB los datos sin procesar del radar (cada chirp, ambos canales de recepción). El firmware abierto incluye este flujo y sus ajustes; Radar Studio para Windows los muestra y procesa, y abre estas vistas con un kit de desarrollo ([Descargas](downloads)).
 
 ## Qué ofrece el firmware abierto
 

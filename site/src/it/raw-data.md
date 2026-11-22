@@ -5,7 +5,7 @@ group: Develop
 ---
 # Dati grezzi e i tuoi algoritmi
 
-Radar Base può trasmettere via USB i dati grezzi del radar (ogni chirp, entrambi i canali di ricezione). Il firmware aperto include questo flusso e le sue impostazioni; lo strumento per PC per visualizzare ed elaborare i dati grezzi non è ancora pubblicato.
+Radar Base può trasmettere via USB i dati grezzi del radar (ogni chirp, entrambi i canali di ricezione). Il firmware aperto include questo flusso e le sue impostazioni; Radar Studio per Windows li visualizza ed elabora e apre queste viste con un kit di sviluppo ([Download](downloads)).
 
 ## Cosa offre il firmware aperto
 

@@ -6,7 +6,7 @@ group: Develop
 # Raw data and your own algorithms
 
 Radar Base can stream the radar's raw data (every chirp, both receive channels) over USB. The open firmware includes
-this stream and its settings; the PC tool for viewing and processing raw data is not published yet.
+this stream and its settings; Radar Studio for Windows views and processes it and opens these views with a dev kit ([Downloads](downloads)).
 
 ## What the open firmware gives you
 
